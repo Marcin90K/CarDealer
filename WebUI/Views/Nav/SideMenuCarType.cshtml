@@ -1,0 +1,10 @@
+﻿<aside>
+    <ul>
+        <li><a class="button" id="searchButton" href="@Url.Action("SearchForm", "Car")">Wyszukaj</a></li>
+        <li><a class="button" href="@Url.Action("List", "Car", new { carType = (string)null, page = 1})">Wszystkie</a></li>
+        <li><a class="button" href="@Url.Action("List", "Car", new { carType = "Passenger", page = 1 })">Osobowe</a></li>
+        <li><a class="button" href="@Url.Action("List", "Car", new { carType = "Van", page = 1 })">Dostawcze</a></li>
+        <li><a class="button" href="@Url.Action("List", "Car", new { carType = "Truck", page = 1 })">Ciężarowe</a></li>
+        <li><a class="button" href="#">Motocykle</a></li>
+    </ul>
+</aside>

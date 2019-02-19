@@ -1,0 +1,50 @@
+﻿<!-- model Domain.Entities.Car-->
+
+@{
+    ViewBag.Title = "Search";
+}
+
+
+
+<div class="contentWrapper">
+
+    @Html.Action("SideMenuCarType", "Nav")
+    
+    <section>
+        <h2>Szukaj pojazdu w katalogu w katalogu</h2>
+
+       
+
+        <div class="searchParams">
+                       
+            @using (Html.BeginForm("Search", "Car"))
+            {
+                <label for="brand">Marka</label>
+                @Html.TextBox("brand", null, new { @class = "searchText" } )
+                <br />
+                <label for="model">Model</label>
+                @Html.TextBox("model", null , new { @class = "searchText" })
+                <br />
+                <label for="manufactDateMin">Rok produkcji od</label>
+                @Html.TextBox("manufactDateMin", null , new { @class = "searchText" })
+                <label for="manufactDateMax">Rok produkcji do</label>
+                @Html.TextBox("manufactDateMax", null, new { @class = "searchText" })
+                <br />
+                <label for="priceMin">Cena od</label>
+                @Html.TextBox("PriceMin", null, new { @class = "searchText" })
+                <label for="priceMax">Cena do</label>
+                @Html.TextBox("PriceMax", null, new { @class = "searchText" })
+                <br />
+                <label for="engineCapMin">Pojemność silnika od</label>
+                @Html.TextBox("engineCapMin", null, new { @class = "searchText" })
+                <label for="engineCapMax">Pojemność silnika do</label>
+                @Html.TextBox("engineCapMax", null, new { @class = "searchText" })
+                <br />
+                <label for="engineType">Rodzaj paliwa</label>
+                @Html.TextBox("engineType", null, new  { @class = "searchText" })
+                <br />
+                <input type="submit" value="Szukaj" class="button"/>
+            }
+        </div>
+    </section>
+</div>

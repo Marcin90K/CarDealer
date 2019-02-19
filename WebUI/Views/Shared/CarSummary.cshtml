@@ -1,0 +1,21 @@
+﻿@model Domain.Entities.Car
+
+<article class="offertContainer">
+    <header>
+        <h3>Marka: @Model.Brand</h3>
+        <h4>Model: @Model.Model</h4>
+    </header>
+    <figure>
+        @if (Model.ImageData != null)
+        {
+            <img height="120" width="160" src="@Url.Action("GetImage", "Car", new {Model.Id})" />
+        }
+    </figure>
+    <div class="alignDiv"></div>
+    <span>Data produkcji: @Model.ManufactDate.Year </span><span>Pojemność silnika: @Model.EngineCapacity cm3</span>
+    <br />
+    <p>Cena: @Model.Price zł</p>
+    <a href="@Url.Action("CarDetails", "Car", new { Model.Id})" class="buttonPageLink">Zobacz</a>
+    
+</article>
+

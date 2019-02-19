@@ -1,0 +1,27 @@
+﻿@model WebUI.Models.CarListViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="contentWrapper">
+    @Html.Action("SideMenuCarType", "Nav")
+
+    <section>
+        @foreach (var item in Model.Cars)
+        {
+            @Html.Partial("CarSummary", item)
+        }
+
+
+        <div class="pageLinksContainer">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Car", new
+            {
+                page = x,
+                carType = Model.CarType
+            }))
+        </div>
+    </section>
+</div>

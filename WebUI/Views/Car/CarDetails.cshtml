@@ -1,0 +1,64 @@
+﻿@model Domain.Entities.Car
+
+@{
+    ViewBag.Title = "CarDetails";
+}
+
+<!-- <h2>Model.Brand Model.Model</h2> -->
+
+<section>
+    <header>
+        <h2>@Model.Brand @Model.Model</h2>
+    </header>
+    <figure class="mainPict">
+        @if (Model.ImageData != null)
+        {
+            <img src="@Url.Action("GetImage", "Car", new { Model.Id })" width="700" height="500"/>
+        }
+    </figure>
+
+    <div class="carDescription">
+        <div class="carDescCont">
+            <div class="carAttrSec1">
+                <h3>Marka <span>@Model.Brand</span> </h3>
+            </div>
+
+            <div class="carAttrSec1">
+                <h3>Model <span>@Model.Model</span> </h3>
+            </div>
+
+            <div class="carAttrSec2">
+                <h3>Rok produkcji <span>@Model.ManufactDate.Year</span> </h3>
+            </div>
+
+
+            <div class="carAttrSec2">
+                <h3>Rodzaj paliwa <span>@Model.EngineType</span> </h3>
+            </div>
+
+            <div class="carAttrSec2">
+                <h3>Pojemność silnika <span>@Model.EngineCapacity cm3</span> </h3>
+            </div>
+        </div>
+
+
+        <div class="carAttrPrice">
+            <h3>Cena</h3>
+            <p>@Model.Price zł</p>
+        </div>
+
+        <div class="alignDiv"></div>
+
+        <div class="carAttrDet">
+            <h3>Opis i wyposażenie </h3>
+            <p>@Model.Description</p> 
+        </div>
+    </div>
+
+    
+    <a href="@Url.Action("Form", "Customer")" class="button">Umów oględziny</a>
+    
+
+    <a href="@Url.Action("List", "Car", new {carType = (string)null})" class="button">Wróć</a>
+</section>
+

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Form";
+}
+
+<section>
+    <header>
+        <h2>Formularz kontaktu klienta ze sprzedawcą</h2>
+    </header>
+
+    <div class="formContainer">
+        @using (Html.BeginForm("Email", "Customer"))
+        {
+            <label for="firstName">Imię</label>
+            @Html.TextBox("firstName", null, new { @class = "formText" })
+            <br />
+            <label for="lastName">Nazwisko</label>
+            @Html.TextBox("lastName", null, new { @class = "formText" })
+            <br />
+            <label for="date">Termin oględzin</label>
+            <input type="date" name="date" class="formText" />
+            <br />
+            <label for="phoneNum">Numer telefonu</label>
+            <input type="tel" name="phoneNum" class="formText" />
+            <br />
+            <label for="message">Wiadomość do sprzedawcy</label>
+            <textarea name="message" maxlength="300" class="formText"></textarea>
+            <br />
+            <input type="submit" value="Wyślij" class="button" />
+
+        }
+    </div>
+
+
+
+</section>
+

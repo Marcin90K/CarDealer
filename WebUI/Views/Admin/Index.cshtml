@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Domain.Entities.Car>
+
+@{
+    ViewBag.Title = "Aktualny stan Auto-komisu";
+}
+
+<section>
+    <h2>Wszystkie dostępne pojazdy w Auto-komisie</h2>
+
+    <div class="tableContainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Napęd</th>
+                    <th>Pojemność silnika</th>
+                    <th>Data produkcji</th>
+                    <th>Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Brand</td>
+                        <td>@item.Model</td>
+                        <td>@item.EngineType</td>
+                        <td>@item.EngineCapacity cm3</td>
+                        <td>@item.ManufactDate.ToShortDateString()</td>
+                        <td>@item.Price.ToString("c")</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Admin", new { item.Id })" class="buttonPageLink">Edytuj</a>
+                        <td>
+                            @using (Html.BeginForm("Delete", "Admin"))
+                            {
+                                @Html.Hidden("Id", item.Id)
+                                <input type="submit" value="Usuń" class="buttonPageLink" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="tableFooter">
+            <a href="@Url.Action("Create", "Admin")" class="buttonPageLink">Dodaj nowy pojazd</a>
+        </div>
+    </div>
+</section>
+
+

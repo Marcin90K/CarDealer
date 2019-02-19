@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komis samochodowy - @ViewBag.Title</title>
+   
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:400,700" rel="stylesheet">
+    <link href="~/Content/CSS/main.css" rel="stylesheet" />
+    <link href="~/Content/CSS/tablesForms.css" rel="stylesheet" />
+    <link href="~/Content/CSS/staticContent.css" rel="stylesheet" />
+    
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <header>
+        <div class="titleNav-wrapper">
+            <div class="headerTitle">
+                <h1><i>Witaj w katalogu online Auto-komisu</i></h1>
+            </div>
+        </div>
+        <div class="headerBanner">
+            
+            <div class="alignDivBanner"></div>
+            
+            @Html.Action("MainMenu", "Nav")
+        </div>
+    </header>
+
+    <div class="contentWrapper">
+    
+        <main>
+            @RenderBody()
+        </main>
+        <div class="alignDiv"></div>
+    </div>
+
+    <footer>
+        <p>&copy @DateTime.Now.Year Auto-komis online</p>
+        <p><a href="https://github.com/Marcin90K">GitHub.com</a></p>
+    </footer>  
+   
+</body>
+</html>

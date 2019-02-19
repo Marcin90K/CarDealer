@@ -1,0 +1,46 @@
+﻿@model Domain.Entities.Car
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edycja pojazdu: @Model.Brand @Model.Model</h2>
+
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    <div class="formContainer">
+        @Html.HiddenFor(c => c.Id)
+        @Html.HiddenFor(c => c.ImageData)
+        @Html.HiddenFor(c => c.ImageMimeType)
+        @foreach (var item in ViewData.ModelMetadata.Properties)
+        {
+            if ((item.PropertyName != "Id") && (item.PropertyName != "ImageData") && (item.PropertyName != "ImageMimeType"))
+            {
+                <label>@(item.DisplayName ?? item.PropertyName)</label>
+                if (item.PropertyName == "Description")
+                {
+                    @Html.TextArea(item.PropertyName, null, new { @class = "formText", rows = 10 })
+                }
+                else
+                {
+                    @Html.TextBox(item.PropertyName, null, new { @class = "formText" })
+                }
+                <br />
+            }
+        }
+
+        <div class="fileLoad">
+            <label>Zdjęcie</label>
+            <input type="file" name="Image" value="Dodaj zdjęcie" class="formText" />
+            
+        </div>
+    </div>
+    <div class="formFooter">
+        <input type="submit" value="Zapisz" class="button"/>
+        <a href="@Url.Action("Index", "Admin")" class="button">Anuluj</a>
+    </div>
+}
+
+
+
+}

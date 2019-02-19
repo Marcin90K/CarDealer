@@ -1,0 +1,37 @@
+﻿.staticSec
+{
+    width: 100%;
+    text-align: center;
+}
+
+.staticSec h2
+{
+    font-size: 40px;
+
+}
+
+
+.staticSec p
+{
+    font-size: 26px;
+    margin-bottom: 50px;
+}
+
+.staticSec p:first-of-type
+{
+    margin-top: 30px;
+}
+
+.staticSec ol
+{
+    text-align: left;
+    font-size: 24px; 
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.staticSec ol li
+{
+    margin-bottom: 10px;
+}
